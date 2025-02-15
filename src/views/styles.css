@@ -1,0 +1,303 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: url("https://www.xtrafondos.com/wallpapers/amanecer-en-el-lago-con-cerezos-en-flor-12783.jpg") no-repeat center center fixed;
+    background-size: cover; /* La imagen cubre toda la pantalla */
+    display: flex;
+    flex-direction: column; /* Coloca los elementos de manera vertical */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Contenedor principal */
+.contenedor {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: 300px; /* Alto fijo */
+    background: linear-gradient(135deg, rgba(240, 248, 255, 0.85), rgba(173, 216, 230, 0.85), rgba(255, 182, 193, 0.85), rgba(255, 99, 71, 0.85)); /* Fondo difuminado entre blanco hielo, azul, rosado y rojo */
+    border-radius: 15px;
+    border: 2px dashed #000;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Imagen del sobre */
+.sobre {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    animation: latido 2s infinite; /* Animación continua de latido más lenta */
+}
+
+/* Animación de latido */
+@keyframes latido {
+    0% {
+        transform: scale(1); /* Tamaño normal */
+    }
+    50% {
+        transform: scale(1.1); /* Agrandar un 10% */
+    }
+    100% {
+        transform: scale(1); /* Regresar al tamaño original */
+    }
+}
+
+/* Si el sobre está en hover (cuando se hace clic o se pasa el ratón), se aplica otra animación */
+.sobre:hover .imagen-sobre {
+    transform: scale(1.1); /* Aumenta el tamaño al hacer hover */
+    animation: none; /* Detenemos la animación de latido cuando se hace hover */
+}
+
+/* Estilo de la imagen */
+.imagen-sobre {
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+/* Frases animadas */
+.frase {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    color: #333;
+    min-height: 30px; /* 🔥 Mantiene el tamaño uniforme */
+}
+
+/* Mensaje secreto */
+.carta {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 90%;
+    width: 500px;
+    z-index: 10;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    max-height: 70vh;
+    font-size: 16px;
+}
+
+/* Botón de cierre */
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fondo difuso cuando se abre el mensaje */
+.fondo-difuso {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+/* Corazón azul fuera del contenedor */
+.corazon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #970707; /* Azul */
+    transform: rotate(-45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: moverCorazon 10s ease-in-out infinite, desaparecerCorazon 3s forwards;
+}
+
+/* Forma del corazón con dos círculos */
+.corazon::before,
+.corazon::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #970707; /* Azul */
+    border-radius: 50%;
+}
+
+.corazon::before {
+    top: -25px; /* Posición superior */
+    left: 0;
+}
+
+.corazon::after {
+    top: 0;
+    left: 25px; /* Posición derecha */
+}
+
+/* Animación de movimiento aleatorio en 10 segundos */
+@keyframes moverCorazon {
+    0% {
+        opacity: 1;
+        top: 50px;
+        left: 50px;
+    }
+    25% {
+        top: 100px;
+        left: 200px;
+    }
+    50% {
+        top: 300px;
+        left: 350px;
+    }
+    75% {
+        top: 500px;
+        left: 500px;
+    }
+    100% {
+        opacity: 1;
+        top: 50px;
+        left: 50px;
+    }
+}
+
+/* Animación para desaparecer de forma más gradual */
+@keyframes desaparecerCorazon {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Reproductor de música */
+.reproductor-musica {
+    margin-top: 20px;  /* Espacio entre el contenedor y el reproductor */
+    text-align: center;
+    font-size: 18px;
+    background: linear-gradient(135deg, rgba(240, 248, 255, 0.85), rgba(173, 216, 230, 0.85), rgba(255, 182, 193, 0.85), rgba(255, 99, 71, 0.85)); /* Fondo similar al contenedor principal */
+    border-radius: 15px; /* Borde redondeado igual que el contenedor */
+    border: 2px dashed #000; /* Borde con línea punteada como el contenedor */
+    padding: 30px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+    width: 100%;
+    max-width: 500px; /* Limitar el ancho máximo del reproductor */
+    min-height: 120px; /* Altura mínima */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nombre de la canción */
+#nombre-cancion {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-overflow: ellipsis; /* Si el texto es largo, lo corta */
+    white-space: nowrap; /* Evita que el texto se envuelva */
+    overflow: hidden; /* Oculta el texto que excede el contenedor */
+}
+
+/* Estilo del reproductor de audio */
+audio {
+    width: 100%;
+    max-width: 500px; /* Limitar el ancho máximo del reproductor */
+}
+
+/* Contenedor de los botones de control */
+.controles-musica {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espaciado entre los botones */
+    margin-bottom: 10px;
+}
+
+/* Estilo de los botones de control */
+.controles-musica button {
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid #000; /* Borde negro */
+    color: #000; /* Color de texto negro */
+    font-size: 24px; /* Tamaño de la fuente para los iconos */
+    width: 40px;
+    height: 40px;
+    border-radius: 25%; /* Forma redondeada */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Cambio de color al pasar el mouse */
+.controles-musica button:hover {
+    background-color: #f0f0f0; /* Fondo gris claro */
+    color: #ff6b6b; /* Cambio de color al pasar el mouse */
+}
+
+/* Estilo del nombre de la canción */
+#nombre-cancion {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-overflow: ellipsis; /* Si el texto es largo, lo corta */
+    white-space: nowrap; /* Evita que el texto se envuelva */
+    overflow: hidden; /* Oculta el texto que excede el contenedor */
+    width: 100%; /* Asegura que el contenedor tenga el mismo ancho */
+    display: inline-block;
+    font-size: 18px;
+    color: #333;
+    animation: carrusel 10s linear infinite; /* Animación continua de deslizamiento */
+}
+
+/* Animación del carrusel (deslizar el texto de un lado a otro) */
+@keyframes carrusel {
+    0% {
+        transform: translateX(10%); /* Comienza fuera del borde derecho */
+    }
+    50% {
+        transform: translateX(-10%); /* Desliza hacia la izquierda hasta desaparecer */
+    }
+    100% {
+        transform: translateX(10%); /* Regresa al borde derecho para repetir */
+    }
+}
+
+
+
+/* Aseguramos que no afecten los contenedores */
+body {
+    font-family: Arial, sans-serif;
+    background: url("https://www.xtrafondos.com/wallpapers/amanecer-en-el-lago-con-cerezos-en-flor-12783.jpg") no-repeat center center fixed;
+    background-size: cover; /* La imagen cubre toda la pantalla */
+    display: flex;
+    flex-direction: column; /* Coloca los elementos de manera vertical */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}

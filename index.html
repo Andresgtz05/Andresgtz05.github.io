@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre con Mensaje Secreto</title>
+    <link rel="stylesheet" href="src/views/styles.css">
+</head>
+<body>
+
+<!-- Contenedor principal -->
+<div class="contenedor">
+    <div class="sobre" onclick="abrirCerrarSobre()">
+        <img src="src/views/img/sobre.png" alt="Sobre" class="imagen-sobre">
+    </div>
+
+    <!-- Frase animada debajo del sobre -->
+    <div id="frase" class="frase"></div> <!-- 🔥 Ahora inicia vacío y se llena con JS -->
+</div>
+
+<!-- Reproductor de música -->
+<div class="reproductor-musica">
+    <!-- Botones para controlar la música -->
+    <div class="controles-musica">
+            <button id="btn-anterior" onclick="anteriorCancion()">⏪</button>
+            <button id="btn-siguiente" onclick="siguienteCancion()">⏩</button>
+    </div>
+    <audio id="audio-player" controls>
+        <source id="audio-source" src="" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Nombre de la canción debajo de la barra de reproducción -->
+    <p id="nombre-cancion">Selecciona una canción para reproducir</p>
+</div>
+
+<!-- Capa de fondo difuso -->
+<div class="fondo-difuso"></div>
+<div class="corazon"></div>
+
+<!-- Contenedor del mensaje secreto -->
+<div class="carta">
+    <button class="cerrar" onclick="abrirCerrarSobre()">X</button>
+    <p>
+        <strong>Para Brisa Leman,</strong><br><br>
+
+        <em>"Sin Tiempo, Sin Fin"</em><br><br>
+
+        Alrededor no hay nada, solo el eco callado<br>
+        de un suspiro en la distancia, y la luna que mira<br>
+        nuestros corazones, como espectros que han danzado<br>
+        en los rincones del alma, bajo la luz que inspira.<br><br>
+        
+        Cómplices de un amor propio, al compás del viento,<br>
+        somos Ícaros y Dafnes, tocando lo imposible,<br>
+        desafiando los cielos con alas de pensamiento,<br>
+        y huyendo, sí, huyendo del fin de lo intangible.<br><br>
+        
+        Ven, quiero oír tu voz, como a Ulises su canto,<br>
+        el llamado a casa en noches sin fin,<br>
+        y como él, soy navegante en este encanto,<br>
+        de mares que no existen, pero que al amor dan sin fin.<br><br>
+        
+        Y sin embargo, mi amor por ti no tiene fecha de expiración,<br>
+        como el sol que ampara a Helios, que nunca se cansa,<br>
+        como el suspiro de Orfeo que atraviesa la canción,<br>
+        y se pierde en los vientos, que mecen nuestra esperanza.<br><br>
+        
+        Te amo 5 millones, como estrellas que se cruzan<br>
+        en las noches infinitas del alma de Artemisa,<br>
+        como los dioses que en su reino luchan<br>
+        y dan vida a un amor que nunca se disipa.<br><br>
+        
+        Al igual que Artemisa, cazadora en la espesura,<br>
+        te busco entre las sombras del tiempo eterno,<br>
+        y a veces soy Aquiles, en mi lucha tan pura,<br>
+        defendiendo el amor con un corazón moderno.<br><br>
+        
+        Ven, ven, que la vida es un río en constante fluir,<br>
+        y el amor, como un río, no sabe dónde va,<br>
+        pero si de mí depende, nunca dejará de existir,<br>
+        pues aunque se acaben las estrellas, yo te buscaré más allá.<br><br>
+        
+        Por lo pronto empezaré a contar hasta lo que más miedo me da:<br>
+        Hasta el fin de los tiempos,<br>
+        o tal vez solo hasta dos.<br><br>
+
+        <em>- Andrés Gutiérrez</em><br>
+        <span style="font-style: italic;">Fecha: 14 de febrero de 2025</span>
+    </p>
+</div>
+
+<script src="src/controllers/script.js"></script>
+</body>
+</html>
